@@ -1,6 +1,7 @@
 package com.panpuntos.dao;
 
 import com.panpuntos.modelo.MovimientoInventario;
+import com.panpuntos.modelo.Producto;
 import com.panpuntos.util.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,6 +43,29 @@ public class InventarioDAO {
                 ps.setInt(4, idPedido);
             }
             ps.executeUpdate();
+        }
+    }
+
+    public Producto leerBloqueando(Connection con, int idProducto) throws SQLException {
+        String sql = "SELECT existencia FROM producto WHERE id_producto = ? FOR UPDATE";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idProducto);
+            try (ResultSet rs = ps.executeQuery()) {
+                rs.next();
+            }
+        }
+        return new ProductoDAO().buscarPorId(con, idProducto);
+    }
+
+    public void descontar(Connection con, int idProducto, int cantidad) throws SQLException {
+        String sql = "UPDATE producto SET existencia = existencia - ? WHERE id_producto = ? AND existencia >= ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, cantidad);
+            ps.setInt(2, idProducto);
+            ps.setInt(3, cantidad);
+            if (ps.executeUpdate() == 0) {
+                throw new SQLException("No fue posible descontar el inventario del producto " + idProducto);
+            }
         }
     }
 
