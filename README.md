@@ -1,8 +1,8 @@
-Pan, Puntos y Premios
+# Pan, Puntos y Premios
 
 Sistema web de pedidos y fidelización para un restaurante de sándwiches. Proyecto Final de Programación II, Universidad Mariano Gálvez.
 
-¿Qué hace?
+## ¿Qué hace?
 
 Gestiona clientes, productos e inventario con su historial de movimientos.
 Toma pedidos con sándwiches, bebidas, acompañamientos y menús completos.
