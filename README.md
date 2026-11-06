@@ -1,6 +1,17 @@
 # Pan, Puntos y Premios
 
-Sistema web de pedidos y fidelización para un restaurante de sándwiches. Proyecto Final de Programación II, Universidad Mariano Gálvez.
+- Sistema web de pedidos y fidelización para un restaurante de sándwiches. 
+
+- Proyecto Final de Programación II, 
+
+- Universidad Mariano Gálvez.
+
+- Hanz Alexander Chanchavac Gonzalez.
+
+- 7690-24-20869.
+
+- Ing. Fernando Caxaj.
+
 
 ## ¿Qué hace?
 
